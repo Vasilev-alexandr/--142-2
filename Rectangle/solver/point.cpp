@@ -26,7 +26,13 @@ std::ostream& operator<<(std::ostream& os, const Point& point)
 
 std::string Point::ToString() const
 {
-    return "(" + std::to_string(m_x) + ", " + std::to_string(m_y) + ")";
+    std::stringstream buffer{};
+    for (size_t i = 0; i < size; ++i)
+    {
+        buffer << "(" + std::to_string(m_x) + ", " + std::to_string(m_y) + ")";
+    }
+
+    return buffer.str();
 }
 
 bool Point::operator==(const Point& other) const
