@@ -6,10 +6,11 @@ Rectangle::Rectangle(Point tl, int w, int h, Color c) : m_topLeft(tl), m_width(w
     if (w < 0 || h < 0) throw std::invalid_argument("Width and height must be non-negative");
 }
 
-std::string Rectangle::ToString() const {
+std::string Rectangle::ToString() const
+{
     std::stringstream buffer{};
-    buffer << "Rectangle: " << std::to_string(GetWidth()) << "x" << std::to_string(GetHeight())
-        << " at " << m_topLeft.ToString() << " with " << m_color.ToString();
+    buffer << "Rectangle: " << GetWidth() << "x" << GetHeight()
+        << " at " << m_topLeft << " with " << m_color.ToString();
     return buffer.str();
 }
 

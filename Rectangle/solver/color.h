@@ -11,9 +11,10 @@ class Color final
      * @brief «начение зеленого канала (от 0 до 255).
      * @brief «начение синего канала (от 0 до 255).
      */
-    uint8_t red, green, blue;
+    int red, green, blue;
 
-    int size;
+    const int min = 0;
+    const int max = 255;
 
 public:
 

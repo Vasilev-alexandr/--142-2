@@ -51,6 +51,8 @@ public:
     */
     Rectangle(Point tl, int w, int h, Color c);
 
+    ~Rectangle() = default;
+
     /**
      * @brief Возвращает строковое представление прямоугольника.
      * Переопределяет метод ToString() из базового класса Shape.
