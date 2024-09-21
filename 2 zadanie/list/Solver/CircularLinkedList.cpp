@@ -43,7 +43,7 @@ CircularLinkedList::~CircularLinkedList()
 void CircularLinkedList::add(int value)
 {
     Node* newNode = new Node(value);
-    if (tail != nullptr)
+    if (tail==nullptr)
     {
         tail = newNode;
         tail->next = tail;
