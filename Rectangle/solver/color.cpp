@@ -12,6 +12,6 @@ Color::Color(int r, int g, int b)
 std::string Color::ToString() const
 {
     std::stringstream buffer{};
-    buffer << "(" + std::to_string(red) + ", " + std::to_string(green) + ", " + std::to_string(blue) + ")";
+    buffer << "(" << red << ", " << green << ", " << blue << ")";
     return buffer.str();
 }

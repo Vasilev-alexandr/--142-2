@@ -11,7 +11,7 @@ class Color final
      * @brief «начение зеленого канала (от 0 до 255).
      * @brief «начение синего канала (от 0 до 255).
      */
-    int red, green, blue;
+    unsigned int red, green, blue;
 
     const int min = 0;
     const int max = 255;

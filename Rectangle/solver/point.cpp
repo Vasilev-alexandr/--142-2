@@ -27,7 +27,7 @@ std::ostream& operator<<(std::ostream& os, const Point& point)
 std::string Point::ToString() const
 {
     std::stringstream buffer{};
-    buffer << "(" + std::to_string(m_x) + ", " + std::to_string(m_y) + ")";
+    buffer << "(" << m_x << ", " << m_y << ")";
     return buffer.str();
 }
 

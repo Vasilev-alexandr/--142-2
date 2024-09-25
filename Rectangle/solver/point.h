@@ -11,8 +11,6 @@ class Point final
      * @brief Координата m_y точки.
      */
     int m_x, m_y;
-    
-    int size;
 
 public:
 
