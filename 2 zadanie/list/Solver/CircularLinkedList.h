@@ -73,16 +73,17 @@ public:
      * @param value Значение для вставки.
      * @return Ссылка на текущий список.
      */
-    CircularLinkedList& operator<<(int value);
+    friend std::ostream& operator<<(std::ostream& os, CircularLinkedList& list);
     /**
      * @brief Перегруженный оператор извлечения.
      * Извлекает значение из начала списка.
      * @param value Ссылка на переменную, в которую будет записано извлеченное значение.
      * @return Ссылка на текущий список.
      */
-    CircularLinkedList& operator>>(int& value);
+
+    friend std::istream& operator>>(std::istream& is, CircularLinkedList& list);
 
     CircularLinkedList(CircularLinkedList&& other) noexcept;
 
-    CircularLinkedList& operator=(CircularLinkedList&& other) noexcept;  
+    CircularLinkedList& operator=(CircularLinkedList&& other) noexcept;
 };

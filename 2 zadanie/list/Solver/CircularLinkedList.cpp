@@ -1,4 +1,5 @@
 #include "CircularLinkedList.h"
+#include <utility>
 
 CircularLinkedList::CircularLinkedList() : head(nullptr), tail(nullptr) {}
 
@@ -7,7 +8,8 @@ CircularLinkedList::CircularLinkedList(const CircularLinkedList& other)
 {
     head = tail = nullptr;
     Node* current = other.head;
-    if (current) {
+    if (current == nullptr)
+    {
         do {
             add(current->data);
             current = current->next;
@@ -25,25 +27,19 @@ CircularLinkedList::CircularLinkedList(std::initializer_list<int> init) : tail(n
 
 CircularLinkedList::~CircularLinkedList()
 {
-    if (tail == nullptr) {
-        return;
-    }
-
-    Node* current = tail->next;
+    Node* current = head;
     Node* nextNode;
-
-    do {
+    while (current != tail && current != nullptr) {
         nextNode = current->next;
+        delete current;
         current = nextNode;
-    } while (current != tail->next);
-
-    tail = nullptr;
+    }
 }
 
 void CircularLinkedList::add(int value)
 {
     Node* newNode = new Node(value);
-    if (tail==nullptr)
+    if (tail == nullptr)
     {
         tail = newNode;
         tail->next = tail;
@@ -87,28 +83,25 @@ std::string CircularLinkedList::toString() const
 
 CircularLinkedList& CircularLinkedList::operator=(const CircularLinkedList& other)
 {
-    if (this == &other)
-    {
-        return *this;
+    if (this != &other) {
+        *this = std::move(other);
     }
-
     return *this;
 }
 
-CircularLinkedList& CircularLinkedList::operator<<(int value)
+std::ostream& operator<<(std::ostream& os, CircularLinkedList& list)
 {
-    add(value);
-    return *this;
+    os << list.toString();
+    return os;
 }
 
-CircularLinkedList& CircularLinkedList::operator>>(int& value)
+std::istream& operator>>(std::istream& is, CircularLinkedList& list)
 
 {
-    if (head)
-    {
-        value = head->data;
-    }
-    return *this;
+    int value;
+    is >> value;
+    list.add(value);
+    return is;
 }
 
 

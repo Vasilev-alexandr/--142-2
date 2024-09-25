@@ -8,7 +8,7 @@ int main()
 {
     CircularLinkedList list = { 1, 2, 3, 4 };
     std::cout << "Initial list: " << list.toString() << std::endl;
-    list << 5;
+    std::cin >> list;
     std::cout << "After adding 5: " << list.toString() << std::endl;
     return 0;
 }
