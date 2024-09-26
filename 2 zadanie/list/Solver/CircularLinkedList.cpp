@@ -8,7 +8,7 @@ CircularLinkedList::CircularLinkedList(const CircularLinkedList& other)
 {
     head = tail = nullptr;
     Node* current = other.head;
-    if (current == nullptr)
+    if (current != nullptr)
     {
         do {
             add(current->data);
@@ -99,8 +99,9 @@ std::istream& operator>>(std::istream& is, CircularLinkedList& list)
 
 {
     int value;
-    is >> value;
-    list.add(value);
+    while (is >> value) {
+        list.add(value);
+    }
     return is;
 }
 
@@ -113,13 +114,13 @@ CircularLinkedList::CircularLinkedList(CircularLinkedList&& other) noexcept : he
 
 CircularLinkedList& CircularLinkedList::operator=(CircularLinkedList&& other) noexcept
 {
-    if (this == &other)
+    if (this != &other)
     {
-        return *this;
-    }
-    head = other.head;
-    tail = other.tail;
-    other.head = other.tail = nullptr;
+        this->~CircularLinkedList();
 
+        head = other.head;
+        tail = other.tail;
+        other.head = other.tail = nullptr;
+    }
     return *this;
 }
