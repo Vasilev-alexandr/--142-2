@@ -114,13 +114,13 @@ CircularLinkedList::CircularLinkedList(CircularLinkedList&& other) noexcept : he
 
 CircularLinkedList& CircularLinkedList::operator=(CircularLinkedList&& other) noexcept
 {
-    if (this != &other)
+    if (this == &other)
     {
-        this->~CircularLinkedList();
-
-        head = other.head;
-        tail = other.tail;
-        other.head = other.tail = nullptr;
+        return *this;
     }
+    head = other.head;
+    tail = other.tail;
+    other.head = other.tail = nullptr;
+
     return *this;
 }
