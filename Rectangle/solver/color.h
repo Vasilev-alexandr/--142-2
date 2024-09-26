@@ -32,4 +32,9 @@ public:
      * @return строка, представл¤юща¤ цвет в формате "RGB(r, g, b)".
      */
     std::string ToString() const;
+
+    int GetRed() const;
+    int GetGreen() const;
+    int GetBlue() const;
+
 };

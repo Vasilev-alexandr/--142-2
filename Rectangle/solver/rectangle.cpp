@@ -3,7 +3,8 @@
 
 Rectangle::Rectangle(Point tl, int w, int h, Color c) : m_topLeft(tl), m_width(w), m_height(h), m_color(c)
 { 
-    if (w < 0 || h < 0) throw std::invalid_argument("Width and height must be non-negative");
+    if (w < 0 || h < 0)
+        throw std::invalid_argument("Width and height must be non-negative");
 }
 
 std::string Rectangle::ToString() const

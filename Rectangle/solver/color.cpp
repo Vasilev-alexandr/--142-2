@@ -15,3 +15,7 @@ std::string Color::ToString() const
     buffer << "(" << red << ", " << green << ", " << blue << ")";
     return buffer.str();
 }
+
+int Color::GetRed() const { return red; }
+int Color::GetGreen() const { return green; }
+int Color::GetBlue() const { return blue; }
