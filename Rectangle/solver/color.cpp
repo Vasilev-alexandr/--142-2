@@ -6,7 +6,9 @@ Color::Color(int r, int g, int b)
 {
     if (r < min || r > max || g < min || g > max || b < min || b > max)
         throw std::invalid_argument("Color values must be between 0 and 255");
-    red = r; green = g; blue = b;
+    this->red = static_cast<unsigned int>(r);
+    this->green = static_cast<unsigned int>(g);
+    this->blue = static_cast<unsigned int>(b);
 }
 
 std::string Color::ToString() const
