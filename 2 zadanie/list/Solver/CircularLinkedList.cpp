@@ -38,17 +38,18 @@ CircularLinkedList::~CircularLinkedList()
 void CircularLinkedList::add(int value)
 {
     Node* newNode = new Node(value);
-    if (tail == nullptr)
+    if (isEmpty())
     {
-        tail = newNode;
-        tail->next = tail;
+        head = tail = newNode;
+        tail->next = head;
     }
-    else
+    else 
     {
-        newNode->next = tail->next;
         tail->next = newNode;
         tail = newNode;
+        tail->next = head;
     }
+
 }
 
 bool CircularLinkedList::isEmpty() const
