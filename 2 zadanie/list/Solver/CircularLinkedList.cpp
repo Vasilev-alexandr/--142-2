@@ -3,7 +3,6 @@
 
 CircularLinkedList::CircularLinkedList() : head(nullptr), tail(nullptr) {}
 
-
 CircularLinkedList::CircularLinkedList(const CircularLinkedList& other)
 {
     head = tail = nullptr;
@@ -84,7 +83,21 @@ std::string CircularLinkedList::toString() const
 CircularLinkedList& CircularLinkedList::operator=(const CircularLinkedList& other)
 {
     if (this != &other) {
-        *this = std::move(other);
+        Node* current = head;
+        while (current != nullptr && current != tail) {
+            Node* nextNode = current->next;
+            delete current;
+            current = nextNode;
+        }
+        head = tail = nullptr;
+
+        current = other.head;
+        if (current != nullptr) {
+            do {
+                add(current->data);
+                current = current->next;
+            } while (current != other.head);
+        }
     }
     return *this;
 }

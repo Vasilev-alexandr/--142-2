@@ -2,20 +2,20 @@
 #include "..//Solver/CircularLinkedList.h"
 
 TEST(CircularLinkedListTest, DefaultConstructor) {
-    CircularLinkedList list;
+    CircularLinkedList list{};
     EXPECT_TRUE(list.isEmpty());
     EXPECT_EQ(list.toString(), "[]");
 }
 
 TEST(CircularLinkedListTest, AddSingleElement) {
-    CircularLinkedList list;
+    CircularLinkedList list{ 10 };
     list.add(10);
     EXPECT_FALSE(list.isEmpty());
     EXPECT_EQ(list.toString(), "[10]");
 }
 
 TEST(CircularLinkedListTest, AddMultipleElements) {
-    CircularLinkedList list;
+    CircularLinkedList list{ 10,20,30 };
     list.add(10);
     list.add(20);
     list.add(30);
@@ -24,7 +24,7 @@ TEST(CircularLinkedListTest, AddMultipleElements) {
 }
 
 TEST(CircularLinkedListTest, CopyConstructor) {
-    CircularLinkedList original;
+    CircularLinkedList original{ 10, 20 };
     original.add(10);
     original.add(20);
 
@@ -35,11 +35,11 @@ TEST(CircularLinkedListTest, CopyConstructor) {
 }
 
 TEST(CircularLinkedListTest, CopyAssignmentOperator) {
-    CircularLinkedList original;
+    CircularLinkedList original{ 10, 20 };
     original.add(10);
     original.add(20);
 
-    CircularLinkedList copy;
+    CircularLinkedList copy{ 1, 2, 3 };
     copy = original;
 
     EXPECT_EQ(copy.toString(), "[10 20]");
@@ -47,7 +47,7 @@ TEST(CircularLinkedListTest, CopyAssignmentOperator) {
 }
 
 TEST(CircularLinkedListTest, MoveConstructor) {
-    CircularLinkedList original;
+    CircularLinkedList original{ 10, 20 };
     original.add(10);
     original.add(20);
 
@@ -58,7 +58,7 @@ TEST(CircularLinkedListTest, MoveConstructor) {
 }
 
 TEST(CircularLinkedListTest, MoveAssignmentOperator) {
-    CircularLinkedList original;
+    CircularLinkedList original{ 10, 20 };
     original.add(10);
     original.add(20);
 
@@ -70,7 +70,7 @@ TEST(CircularLinkedListTest, MoveAssignmentOperator) {
 }
 
 TEST(CircularLinkedListTest, InputOperator) {
-    CircularLinkedList list;
+    CircularLinkedList list{};
     std::istringstream input("15");
     input >> list;
 
@@ -78,7 +78,7 @@ TEST(CircularLinkedListTest, InputOperator) {
 }
 
 TEST(CircularLinkedListTest, OutputOperator) {
-    CircularLinkedList list;
+    CircularLinkedList list{ 10, 20 };
     list.add(10);
     list.add(20);
 
