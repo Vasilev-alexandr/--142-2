@@ -13,6 +13,10 @@ class Color final
      */
     unsigned int red, green, blue;
 
+    /**
+    * @brief Минимально допустимое значение для любого канала (равно 0).
+    * @brief Максимально допустимое значение для любого канала (равно 255).
+    */
     const int min = 0;
     const int max = 255;
 
@@ -32,6 +36,7 @@ public:
      * @return строка, представл¤юща¤ цвет в формате "RGB(r, g, b)".
      */
     std::string ToString() const;
+
 
     int GetRed() const;
     int GetGreen() const;
