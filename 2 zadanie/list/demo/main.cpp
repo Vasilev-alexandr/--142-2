@@ -10,5 +10,8 @@ int main()
     std::cout << "Initial list: " << list.toString() << std::endl;
     std::cin >> list;
     std::cout << "After adding 5: " << list.toString() << std::endl;
+    CircularLinkedList list2;
+    list2 = list;
+    std::cout << "Other list after assigning" << list2 << std::endl;
     return 0;
 }
