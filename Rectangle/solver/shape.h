@@ -15,6 +15,6 @@ public:
   * @return Строковое представление фигуры.
   */
     virtual std::string ToString() const = 0;
-    
+
     virtual ~Shape(void) = 0;
 };
