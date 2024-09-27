@@ -25,7 +25,6 @@ class Rectangle final : public Shape
     */
     Color m_color;
 
-    int size;
 
 public:
 
